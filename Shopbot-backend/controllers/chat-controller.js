@@ -1,4 +1,4 @@
-import { getAIResponse } from "../services/aiService.js";
+import { getAIResponse } from "../services/ai.js";
 
 export const chat = async (req, res) => {
   try {

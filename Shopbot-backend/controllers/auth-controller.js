@@ -1,12 +1,11 @@
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
-import { users } from "../consts.js";
+import knex from "../knexfile.js";
 import { SECRET_KEY } from "../utils/constants.js";
 
 export const register = async (req, res) => {
   try {
     const { fName, lName, email, password, role } = req.body;
-
     if (!fName || !lName || !email || !password || !role) {
       return res
         .status(400)
@@ -21,7 +20,6 @@ export const register = async (req, res) => {
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
-
     const [userId] = await knex("users").insert({
       fName,
       lName,
@@ -33,7 +31,6 @@ export const register = async (req, res) => {
     const token = jwt.sign({ id: userId, email, role }, SECRET_KEY, {
       expiresIn: "24h",
     });
-
     res.status(201).json({ token });
   } catch (error) {
     console.error("Error during registration:", error);
@@ -42,27 +39,21 @@ export const register = async (req, res) => {
 };
 
 export const login = async (req, res) => {
-  const { email, password } = req.body;
+  try {
+    const { email, password } = req.body;
+    const user = await knex("users").where({ email }).first();
+    if (!user || !(await bcrypt.compare(password, user.password))) {
+      return res.status(400).json({ error: "Invalid email or password." });
+    }
 
-  if (!email || !password) {
-    return res.status(404).send("Please enter the required fields");
+    const token = jwt.sign(
+      { id: user.id, email: user.email, role: user.role },
+      SECRET_KEY,
+      { expiresIn: "24h" }
+    );
+    res.json({ token });
+  } catch (error) {
+    console.error("Error during login:", error);
+    res.status(500).json({ error: "Server error during login." });
   }
-
-  const user = users.find((user) => user.email === email);
-  if (!user) {
-    return res.status(400).send("Invalid email");
-  }
-
-  const isPasswordCorrect = bcrypt.compareSync(password, user.password);
-  if (!isPasswordCorrect) {
-    return res.status(400).send("Invalid password");
-  }
-
-  const token = jwt.sign(
-    { id: user.id, email: user.email, role: user.role },
-    SECRET_KEY,
-    { expiresIn: "24h" }
-  );
-
-  res.send({ token });
 };
