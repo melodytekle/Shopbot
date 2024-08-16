@@ -17,6 +17,7 @@ export const getAIResponse = async (userMessage) => {
     });
     return response.data.choices[0].text.trim();
   } catch (error) {
+    console.error("Error communicating with AI service:", error);
     throw new Error("AI service failed");
   }
 };
