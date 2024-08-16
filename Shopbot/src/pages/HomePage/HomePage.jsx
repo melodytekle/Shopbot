@@ -5,11 +5,12 @@ const HomePage = () => {
   return (
     <div>
       <h1>Welcome to ShopBot</h1>
+      <p></p>
       <Link to="/login">Login</Link>
       <br />
       <Link to="/register">Register</Link>
       <br />
-      <Link to="/chat">Chat with AI</Link>
+      <Link to="/chat">Chat with Shopbot</Link>
     </div>
   );
 };
