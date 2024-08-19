@@ -42,7 +42,7 @@ export const getAIResponse = async (userMessage) => {
         {
           role: "system",
           content:
-            "You are a helpful assistant who can provide information about orders based on tracking numbers.",
+            "You are a helpful assistant named ShopBot who can provide information about orders based on tracking numbers as well as answer shoppers questions that have to do with shopping.",
         },
         { role: "user", content: userMessage },
       ],
