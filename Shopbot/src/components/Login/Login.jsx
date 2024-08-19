@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import API from "../../services/shopbot-api";
+import "./Login.scss";
+import robotLogo from "../../assets/shopbot-logo.png";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -21,6 +23,9 @@ const Login = () => {
 
   return (
     <form onSubmit={handleLogin}>
+      <a href="/" className="chat-logo-link">
+        <img src={robotLogo} alt="ShopBot Logo" className="shopbot-logo" />
+      </a>
       <input
         type="email"
         placeholder="Email"
@@ -33,7 +38,9 @@ const Login = () => {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
-      <button type="submit">Login</button>
+      <button className="submit-button" type="submit">
+        Login
+      </button>
     </form>
   );
 };

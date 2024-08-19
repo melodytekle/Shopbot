@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import API from "../../services/shopbot-api";
+import "./ChatWidget.scss";
+import robotLogo from "../../assets/shopbot-chat-logo.png";
 
 const ChatWidget = () => {
   const [messages, setMessages] = useState([]);
@@ -28,6 +30,9 @@ const ChatWidget = () => {
   return (
     <div className="chat-widget">
       <div className="messages">
+        <a href="/" className="chat-logo-link">
+          <img src={robotLogo} alt="ShopBot Logo" className="chat-logo" />
+        </a>
         {messages.map((msg, idx) => (
           <div
             key={idx}
@@ -37,13 +42,20 @@ const ChatWidget = () => {
           </div>
         ))}
       </div>
-      <input
-        type="text"
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
-        onKeyPress={(e) => e.key === "Enter" && sendMessage()}
-      />
-      <button onClick={sendMessage}>Send</button>
+      <section className="chat__input">
+        <div className="input__container">
+          <input
+            type="text"
+            value={input}
+            placeholder="Type your message here"
+            onChange={(e) => setInput(e.target.value)}
+            onKeyPress={(e) => e.key === "Enter" && sendMessage()}
+          />
+        </div>
+        <div className="button__container">
+          <button onClick={sendMessage}>Send</button>
+        </div>
+      </section>
     </div>
   );
 };

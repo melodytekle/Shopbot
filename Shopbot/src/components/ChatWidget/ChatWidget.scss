@@ -1,0 +1,132 @@
+@use "../../styles/partials/breakpoints" as *;
+@use "../../styles/partials/variables" as vars;
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap");
+
+h1 {
+  font-family: "Orbitron", sans-serif;
+  color: black;
+  text-align: center;
+}
+.chat-widget {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 0;
+  background-color: white;
+  overflow: hidden;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+
+  .messages {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    background-color: #f7f7f7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .user-message,
+    .bot-message {
+      padding: 10px;
+      margin: 5px 10px;
+      border-radius: 20px;
+      max-width: 75%;
+      word-wrap: break-word;
+    }
+
+    .user-message {
+      background-color: black;
+      color: white;
+      align-self: flex-end;
+    }
+
+    .bot-message {
+      background-color: #e1e1e1;
+      align-self: flex-start;
+    }
+  }
+
+  input {
+    padding: 10px;
+    border: none;
+    border: 1px solid #ddd;
+    flex: 0 0 40px;
+    font-size: 14px;
+    outline: none;
+    width: 100%;
+    height: 5%;
+    border-radius: 10px;
+    margin: 1rem 2rem 0 2rem;
+  }
+
+  button {
+    padding: 10px;
+    border: none;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    width: 40%;
+    border-left: none;
+
+    @include desktop {
+      width: 45%;
+      margin: 1rem 0 1rem 0;
+    }
+
+    &:hover {
+      background-color: lightgrey;
+    }
+  }
+
+  .button__container {
+    display: flex;
+    justify-content: flex-end;
+    padding-left: 450px;
+    margin: 0.5rem 0;
+  }
+
+  .input__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 100%;
+  }
+
+  @include tablet {
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    right: 0;
+    border-radius: 0;
+  }
+
+  @include desktop {
+    width: 60%;
+    height: 70%;
+    bottom: auto;
+    right: auto;
+    left: 50%;
+    top: 15%;
+    transform: translateX(-50%);
+    border-radius: 10px;
+  }
+}
+
+.chat {
+  &__input {
+    width: 90%;
+  }
+  &__logo {
+    width: 4rem;
+  }
+  &-logo {
+    width: 600px;
+    cursor: pointer;
+  }
+}

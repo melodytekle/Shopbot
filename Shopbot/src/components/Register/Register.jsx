@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import API from "../../services/shopbot-api";
+import robotLogo from "../../assets/shopbot-logo.png";
+import "./Register.scss";
 
 const Register = () => {
   const [email, setEmail] = useState("");
@@ -23,6 +25,9 @@ const Register = () => {
 
   return (
     <form onSubmit={handleRegister}>
+      <a href="/" className="chat-logo-link">
+        <img src={robotLogo} alt="ShopBot Logo" className="shopbot-logo" />
+      </a>
       <input
         type="text"
         placeholder="First Name"
@@ -47,7 +52,9 @@ const Register = () => {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
-      <button type="submit">Register</button>
+      <button className="register-button" type="submit">
+        Register
+      </button>
     </form>
   );
 };

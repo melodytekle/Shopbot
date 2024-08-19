@@ -12,7 +12,7 @@ const ProfilePage = () => {
         const token = localStorage.getItem("token");
         if (!token) {
           alert("You are not logged in. Please log in again.");
-          navigate("/login"); // Redirect to login page if token is missing
+          navigate("/login");
           return;
         }
 

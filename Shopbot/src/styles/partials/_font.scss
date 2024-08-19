@@ -1,0 +1,66 @@
+@use "./variables" as *;
+@mixin font($size, $height, $weight) {
+  font-size: $size;
+  line-height: $height;
+  font-weight: $weight;
+}
+
+h1 {
+  @include font(25px, 36px, 600);
+}
+h2 {
+  @include font(20px, 28px, 600);
+}
+h3 {
+  @include font(13px, 20px, 600);
+}
+h4 {
+  @include font(11px, 16px, 600);
+}
+.p1 {
+  @include font(15px, 26px, 400);
+}
+.p2 {
+  @include font(13px, 20px, 400);
+}
+.p3 {
+  @include font(11px, 16px, 400);
+}
+ul,
+li,
+span,
+a,
+label {
+  @include font(15px, 26px, 400);
+}
+// desktop & tablet text styles:
+@media only screen and (min-width: 48rem) {
+  h1 {
+    @include font(32px, 40px, 600);
+  }
+  h2 {
+    @include font(24px, 32px, 600);
+  }
+  h3 {
+    @include font(14px, 22px, 600);
+  }
+  h4 {
+    @include font(12px, 18px, 600);
+  }
+  .p1 {
+    @include font(16px, 28px, 500);
+  }
+  .p2 {
+    @include font(14px, 22px, 500);
+  }
+  .p3 {
+    @include font(12px, 18px, 500);
+  }
+  ul,
+  li,
+  span,
+  a,
+  label {
+    @include font(16px, 28px, 500);
+  }
+}
