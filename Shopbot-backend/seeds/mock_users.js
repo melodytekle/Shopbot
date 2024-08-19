@@ -8,6 +8,7 @@ export async function seed(knex) {
   await knex("users").del();
   await knex("users").insert([
     {
+      id: 1,
       fName: "John",
       lName: "Doe",
       email: "john@example.com",
@@ -15,6 +16,7 @@ export async function seed(knex) {
       role: "admin",
     },
     {
+      id: 2,
       fName: "Jane",
       lName: "Smith",
       email: "jane@example.com",

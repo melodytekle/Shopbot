@@ -1,6 +1,6 @@
 import { OpenAI } from "openai";
 import { AI_API_KEY, AI_API_BASE_URL } from "../utils/constants.js";
-import knex from "../knex.js";
+import knex from "../config/knex.js";
 
 const openai = new OpenAI({
   apiKey: AI_API_KEY,

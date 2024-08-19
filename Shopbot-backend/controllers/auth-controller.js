@@ -1,6 +1,6 @@
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
-import knex from "../knexfile.js";
+import knex from "../config/knex.js";
 import { SECRET_KEY } from "../utils/constants.js";
 
 export const register = async (req, res) => {
