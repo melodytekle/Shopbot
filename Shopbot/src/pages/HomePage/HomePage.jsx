@@ -11,12 +11,17 @@ const HomePage = () => {
           Welcome to ShopBot{" "}
           <img src={robotLogo} alt="ShopBot Logo" className="chat__logo" />
         </h1>
-        <p></p>
-        <Link to="/login">Login</Link>
+        <Link className="homepage__nav" to="/login">
+          Login
+        </Link>
         <br />
-        <Link to="/register">Register</Link>
+        <Link className="homepage__nav" to="/register">
+          Register
+        </Link>
         <br />
-        <Link to="/chat">Chat with Shopbot</Link>
+        <Link className="homepage__nav" to="/chat">
+          Chat with Shopbot
+        </Link>
       </div>
     </div>
   );

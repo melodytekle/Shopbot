@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import API from "../../services/shopbot-api";
 import { useNavigate } from "react-router-dom";
+import "./ProfilePage.scss";
 
 const ProfilePage = () => {
   const [profile, setProfile] = useState(null);
@@ -49,52 +50,61 @@ const ProfilePage = () => {
 
     return (
       <div>
-        <h3>Your Orders:</h3>
-        <ul>
-          {profile.orders.map((order) => (
-            <li key={order.trackingNumber}>
-              <p>
-                <strong>Tracking Number:</strong> {order.trackingNumber}
-              </p>
-              <p>
-                <strong>Status:</strong> {order.status}
-              </p>
-              <p>
-                <strong>Estimated Delivery:</strong> {order.estimatedDelivery}
-              </p>
-              <p>
-                <strong>Items:</strong>
-              </p>
-              <ul>
-                {order.items.map((item, index) => (
-                  <li key={index}>
-                    {item.quantity} x {item.name} (${item.price})
-                  </li>
-                ))}
-              </ul>
-            </li>
-          ))}
-        </ul>
+        <h3>YOUR ORDERS</h3>
+        <div className="order__summary">
+          <ul className="order__list">
+            {profile.orders.map((order) => (
+              <div className="order__details">
+                <li key={order.trackingNumber}>
+                  <p>
+                    <strong>Tracking Number:</strong> {order.trackingNumber}
+                  </p>
+                  <p>
+                    <strong>Status:</strong> {order.status}
+                  </p>
+                  <p>
+                    <strong>Estimated Delivery:</strong>{" "}
+                    {order.estimatedDelivery}
+                  </p>
+                  <p>
+                    <strong>Items:</strong>
+                  </p>
+                  <ul>
+                    {order.items.map((item, index) => (
+                      <li key={index}>
+                        {item.quantity} x {item.name} (${item.price})
+                      </li>
+                    ))}
+                  </ul>
+                </li>
+              </div>
+            ))}
+          </ul>
+        </div>
       </div>
     );
   };
 
   return (
-    <div>
-      <h1>My Profile</h1>
-      {profile ? (
-        <div>
-          <p>
-            Name: {profile.fName} {profile.lName}
-          </p>
-          <p>Email: {profile.email}</p>
-          <p>Role: {profile.role}</p>
-          {renderOrders()}
-        </div>
-      ) : (
-        <p>Loading...</p>
-      )}
-      <button onClick={() => navigate("/")}>Return to HomePage</button>
+    <div className="profile__summary">
+      <section className="profile__list">
+        <h1>My Profile</h1>
+        {profile ? (
+          <div className="profile__details">
+            <p>
+              Name: {profile.fName} {profile.lName}
+            </p>
+            <p>Email: {profile.email}</p>
+            <p>Role: {profile.role}</p>
+            {renderOrders()}
+          </div>
+        ) : (
+          <p>Loading...</p>
+        )}
+        <button className="return-button" onClick={() => navigate("/")}>
+          Return to HomePage
+        </button>
+      </section>
     </div>
   );
 };
