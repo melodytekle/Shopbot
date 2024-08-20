@@ -1,4 +1,4 @@
-# ShopBot
+![ShopBot Logo](./Shopbot/src/assets/shopbot-logo.png)
 
 ## Overview
 
@@ -33,7 +33,7 @@ Online shoppers often struggle to find product information or resolve issues qui
 ### Tech Stack
 
 - **Front-End**: React, JavaScript, SCSS,
-- **Back-End**: Ruby on Rails _subject to change_
+- **Back-End**: Express, MySql, Knex
 
 ### APIs
 
@@ -41,17 +41,15 @@ Online shoppers often struggle to find product information or resolve issues qui
 
 ### Sitemap
 
-1. Chat Widget
+1. Home Page
 2. Register
 3. Login
 4. Chat Interface
+5. Profile Page
 
 ### Mockups
 
-1.
-2.
-3.
-4.
+![Mockups](./Shopbot/src/assets/Mockups.png)
 
 ### Data
 
