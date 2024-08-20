@@ -131,3 +131,18 @@ h1 {
     cursor: pointer;
   }
 }
+
+.email-section {
+  margin: 0 0 1rem 2rem;
+}
+
+.email__input {
+  display: flex;
+  margin-left: 2rem;
+
+  input {
+    width: 10rem;
+    margin: 0 1rem 2rem 0;
+    height: 1rem;
+  }
+}

@@ -47,7 +47,7 @@ export const getAIResponse = async (userMessage) => {
         { role: "user", content: userMessage },
       ],
       temperature: 0.7,
-      max_tokens: 1000,
+      max_tokens: 250,
     });
 
     return chatCompletion.choices[0].message.content.trim();
