@@ -33,7 +33,7 @@ Online shoppers often struggle to find product information or resolve issues qui
 ### Tech Stack
 
 - **Front-End**: React, JavaScript, SCSS,
-- **Back-End**: Ruby on Rails _subject to change_
+- **Back-End**: Express, MySql, Knex
 
 ### APIs
 
