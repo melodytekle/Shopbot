@@ -4,7 +4,6 @@
  */
 export function up(knex) {
   return knex.schema.table("orders", (table) => {
-    // Set a fake default date for mock data
     table.date("estimated_delivery").defaultTo("2024-12-01").notNullable();
     table
       .integer("user_id")

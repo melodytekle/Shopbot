@@ -26,7 +26,7 @@ export const getProfile = async (req, res) => {
       status: order.status,
       estimatedDelivery: new Date(order.estimated_delivery).toDateString(),
       items:
-        typeof order.items === "string" ? JSON.parse(order.items) : order.items, // Ensure items are parsed correctly
+        typeof order.items === "string" ? JSON.parse(order.items) : order.items,
     }));
 
     res.json({

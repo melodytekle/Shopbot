@@ -28,7 +28,7 @@ const ProfilePage = () => {
         console.error("Failed to fetch profile:", error);
         if (error.response && error.response.status === 401) {
           alert("Your session has expired. Please log in again.");
-          localStorage.removeItem("token"); // Clear the token if it's invalid or expired
+          localStorage.removeItem("token");
           navigate("/login");
         } else {
           alert("Failed to fetch profile. Please try again later.");

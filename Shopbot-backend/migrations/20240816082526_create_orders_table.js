@@ -7,7 +7,7 @@ export function up(knex) {
     table.increments("id").primary();
     table.string("status").notNullable();
     table.string("tracking_number").notNullable();
-    table.json("items").notNullable(); // JSON for product details
+    table.json("items").notNullable();
     table.timestamps(true, true);
   });
 }
